@@ -15,17 +15,19 @@ public class RotatedSortedArray {
     public static void main(String[] args) {
         int[] arr = { 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
         int[] arr2 = {9, 10, 1, 2, 3, 4, 5, 6, 7, 8};
-        System.out.println(searchInRotatedSortedArray(arr, 1));
-        System.out.println(searchInRotatedSortedArray(arr2, 1));
+        int[] arr3 = {1};
+//        System.out.println(searchInRotatedSortedArray(arr, 1));
+//        System.out.println(searchInRotatedSortedArray(arr2, 1));
+        System.out.println(searchInRotatedSortedArray(arr3, 1));
     }
 
     public static int searchInRotatedSortedArray(int[] arr, int target){
         int pivot = findPivot(arr);
         System.out.println("pivot is "+pivot);
-        if(target == arr[pivot])
-            return pivot;
         if(pivot == -1)
             return binarySearch(arr, 0, arr.length-1, target);
+        if(target == arr[pivot])
+            return pivot;
         if(target > arr[0])
             return binarySearch(arr, 0, pivot-1, target);
         else
